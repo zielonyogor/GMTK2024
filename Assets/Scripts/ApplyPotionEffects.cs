@@ -25,6 +25,6 @@ public class ApplyPotionEffects : MonoBehaviour
                 script.ChangeSpeed(speed);
             }
         }
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }
