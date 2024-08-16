@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [Header("Variable for game over screen")]
+    public int cutsceneBackground;
+
     private int _currentLevelIndex = 0;
     private void Awake()
     {
@@ -32,12 +35,14 @@ public class GameManager : MonoBehaviour
         if (state == Constants.GameOverState.PlayerTooBig)
         {
             Debug.Log("you grew too big");
-            SceneManager.LoadScene(0);
+            cutsceneBackground = 0;
+            SceneManager.LoadScene("Cutscene");
         }
         else
         {
             Debug.Log("you were shrank into the atoms");
-            SceneManager.LoadScene(0);
+            cutsceneBackground = 1;
+            SceneManager.LoadScene("Cutscene");
         }
     }
 }
