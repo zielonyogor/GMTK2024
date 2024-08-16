@@ -1097,6 +1097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd460eaf62eda98478cf51fe2669401f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutsceneBackground: 0
 --- !u!4 &1360870764
 Transform:
   m_ObjectHideFlags: 0
@@ -1687,11 +1688,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4803149881730171175, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.77
+      value: -4.42
       objectReference: {fileID: 0}
     - target: {fileID: 4803149881730171175, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.11
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4803149881730171175, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
       propertyPath: m_LocalPosition.z
