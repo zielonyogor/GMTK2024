@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         if (state == Constants.GameOverState.PlayerTooBig)
         {
             Debug.Log("you grew too big");
+            SceneManager.LoadScene(0);
         }
         else
         {

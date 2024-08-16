@@ -5,7 +5,6 @@ using UnityEngine;
 public class ChangePlayerSize : MonoBehaviour
 {
     private float _speed = 0f;
-
     private float _minSpeed = 0.02f;
 
     private void FixedUpdate()
@@ -34,10 +33,5 @@ public class ChangePlayerSize : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         _speed = _minSpeed * direction;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        GameManager.Instance.GameOver(Constants.GameOverState.PlayerTooBig);
     }
 }
