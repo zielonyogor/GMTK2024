@@ -123,6 +123,57 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &115431957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 115431959}
+  - component: {fileID: 115431958}
+  m_Layer: 0
+  m_Name: Timeline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &115431958
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115431957}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 5dfee2af23eb95b4f982ceb9e15640ba, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -6811254329025170332, guid: 5dfee2af23eb95b4f982ceb9e15640ba, type: 2}
+    value: {fileID: 519420034}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &115431959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115431957}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6184121, y: 1.6755584, z: 1.9583089}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &196736214
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +304,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &317916900 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3990313285083328369, guid: bcdeb316c1b47014fa9d8ef9cd1cf56d, type: 3}
+  m_PrefabInstance: {fileID: 4527500894457707483}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &329089778
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +710,8 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -735,6 +793,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98b794b87fc43b4698ddf6a2e804792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 317916900}
+  minValue: {x: -6.8, y: -3.9, z: -10}
+  maxValue: {x: 6.8, y: 3.9, z: -10}
+  smoothFactor: 1
+--- !u!95 &519420034
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &674973378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,11 +1799,11 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 3990313285083328369, guid: bcdeb316c1b47014fa9d8ef9cd1cf56d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.66
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3990313285083328369, guid: bcdeb316c1b47014fa9d8ef9cd1cf56d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.71
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3990313285083328369, guid: bcdeb316c1b47014fa9d8ef9cd1cf56d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1818,3 +1913,4 @@ SceneRoots:
   - {fileID: 767264670}
   - {fileID: 2086522403}
   - {fileID: 4746968598083630622}
+  - {fileID: 115431959}
