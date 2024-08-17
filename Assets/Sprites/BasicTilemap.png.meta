@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0649eebf4771514488f22b639c94cede
+guid: 1e3cd826c32031e4e90e6e48b0daeb41
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1024
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,6 +114,48 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fcdb55520a667e4da14c6a06fe7c492
+      internalID: 930620356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicTilemap_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 652a7d397a34a5a47a70e26f9291c9a6
+      internalID: 1635772339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicTilemap_2
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 1024
         height: 1024
@@ -124,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32c25e677163c1d4884a87d83ea166a1
-      internalID: 854013275
+      spriteID: cf5a7b7729d9aca4888f0702435d9736
+      internalID: -265968958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BasicTilemap_1
+      name: BasicTilemap_3
       rect:
         serializedVersion: 2
         x: 1024
@@ -145,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3718a0460aeb0e24f8c7a2bc7fa014b9
-      internalID: 1597011523
+      spriteID: 0d139b9827036f348b5b1faa2a8c049e
+      internalID: 1815738488
       vertices: []
       indices: 
       edges: []
@@ -162,8 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BasicTilemap_0: 854013275
-      BasicTilemap_1: 1597011523
+      BasicTilemap_0: 930620356
+      BasicTilemap_1: 1635772339
+      BasicTilemap_2: -265968958
+      BasicTilemap_3: 1815738488
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
