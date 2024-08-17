@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     [Header("Variable for game over screen")]
     public int cutsceneBackground;
 
-    private int _currentLevelIndex = 0;
+    [Header("Game Data")]
+    public GameData gameData;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -22,12 +24,15 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this);
         }
+        gameData = SaveSystem.LoadGameData();
     }
 
     public void NextLevel()
     {
-        _currentLevelIndex++;
-        Debug.Log("player finished this level, next level: " + _currentLevelIndex);
+        gameData.level++;
+        Debug.Log("player finished this level, next level: " + gameData.level);
+        SceneManager.LoadScene("MainMenu");
+        SaveSystem.SaveGame();
     }
 
     public void GameOver(Constants.GameOverState state)
