@@ -20,13 +20,11 @@ public class CameraMovement : MonoBehaviour
     [Header("Animation curve")]
     [SerializeField] AnimationCurve curve;
 
-    private Camera camera;
     private float _curveTime = 1.5f;
     private bool _isAnimationFinished = false;
 
     private void Start()
     {
-        camera = GetComponent<Camera>();
         scriptMovement.enabled = false;
         scriptSize.enabled = false;
         StartCoroutine(StartAnimation());
@@ -36,14 +34,13 @@ public class CameraMovement : MonoBehaviour
     {
         float elapsedTime = 0;
 
-        yield return new WaitForSeconds(2f);
-        Debug.Log("start animation");
+        yield return new WaitForSeconds(0.8f);
 
-        while (camera.orthographicSize > 4)
+        while (Camera.main.orthographicSize > 4)
         {
             elapsedTime += Time.deltaTime;
             float percentageCompleted = elapsedTime / _curveTime;
-            camera.orthographicSize = Mathf.Lerp(8, 4, curve.Evaluate(percentageCompleted));
+            Camera.main.orthographicSize = Mathf.Lerp(8, 4, curve.Evaluate(percentageCompleted));
             Vector3 smoothedPosition = Vector3.Lerp(new Vector3(0,0,-10), 
                 new Vector3(player.position.x, player.position.y, -10), 
                 curve.Evaluate(percentageCompleted));
@@ -51,7 +48,7 @@ public class CameraMovement : MonoBehaviour
 
             yield return new WaitForFixedUpdate();
         }
-        camera.orthographicSize = 4;
+        Camera.main.orthographicSize = 4;
         _isAnimationFinished = true;
 
         scriptSize.enabled = true;

@@ -144,3 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  particlesObject: {fileID: 5400318864013223675, guid: 48def4d1eadeee34aa4072c83420ab68, type: 3}
