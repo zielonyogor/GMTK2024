@@ -12,6 +12,9 @@ public class ApplyPotionEffects : MonoBehaviour
     [SerializeField] GameObject particlesObject;
     private ParticleSystem _particles;
 
+    [Header("Item sound effect")]
+    [SerializeField] AudioSource audioSource;
+
     private BoxCollider2D _collider;
 
     private void Start()
@@ -22,6 +25,8 @@ public class ApplyPotionEffects : MonoBehaviour
     {
         Destroy(_collider); //disable collider first to make sure on trigger doesn't get triggered more than once
         Destroy(GetComponent<SpriteRenderer>());
+
+        audioSource.Play();
         
         if (collision.transform.CompareTag("Player"))
         {
