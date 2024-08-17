@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
     [Header("Player variables")]
     [SerializeField] Transform player;
     [SerializeField] ChangePlayerSize scriptSize;
-    [SerializeField] PlayerMovement scriptMovement;
+    [SerializeField] PlayerInput playerInput;
 
     [Header("Boundaries")]
     [SerializeField] Vector3 minValue;
@@ -25,7 +26,7 @@ public class CameraMovement : MonoBehaviour
 
     private void Start()
     {
-        scriptMovement.enabled = false;
+        playerInput.enabled = false;
         scriptSize.enabled = false;
         StartCoroutine(StartAnimation());
     }
@@ -52,7 +53,7 @@ public class CameraMovement : MonoBehaviour
         _isAnimationFinished = true;
 
         scriptSize.enabled = true;
-        scriptMovement.enabled = true;
+        playerInput.enabled = true;
     }
 
     void FixedUpdate()
