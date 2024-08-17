@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Data")]
     public GameData gameData;
+    public int currentLevel = 1;
 
     private void Awake()
     {
@@ -30,6 +31,10 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         gameData.level++;
+        if(currentLevel < gameData.level)
+        {
+            currentLevel++;
+        }
         Debug.Log("player finished this level, next level: " + gameData.level);
         SceneManager.LoadScene("MainMenu");
         SaveSystem.SaveGame();

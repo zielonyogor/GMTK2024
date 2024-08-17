@@ -981,16 +981,36 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7310565269421782756, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1200768173, guid: 46f570bc3ba7aec4ba26f61c84520428, type: 3}
+    - target: {fileID: 7310565269421782756, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
       propertyPath: m_Color.b
-      value: 0.8584906
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7310565269421782756, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
       propertyPath: m_Color.g
-      value: 0.13363297
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7310565269421782756, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
       propertyPath: m_Color.r
-      value: 0.7199139
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376789008313809056, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376789008313809056, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
+      propertyPath: m_Size.y
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376789008313809056, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376789008313809056, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.74
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2069,6 +2089,14 @@ PrefabInstance:
     - target: {fileID: 6603407260387246093, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
       propertyPath: speed
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376789008313809056, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376789008313809056, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
+      propertyPath: m_Size.y
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -19,6 +19,7 @@ public class MenuManager : MonoBehaviour
     }
     public void StartGame(int index)
     {
+        GameManager.Instance.currentLevel = index;
         SceneManager.LoadScene(0);
     }
 }
