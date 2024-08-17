@@ -8,21 +8,54 @@ public class CheckSize : MonoBehaviour
     [SerializeField] float offset = 0.03f;
 
     private float _playerWidth, _playerHeight;
-    
+
+    private BoxCollider2D _collider;
+    private float _colliderOffset = 0;
+
+    private void Start()
+    {
+         _collider = GetComponent<BoxCollider2D>();
+        _colliderOffset = _collider.offset.y;
+    }
+
     void FixedUpdate()
     {
-        _playerWidth = transform.localScale.x;
-        _playerHeight = transform.localScale.y;
+        Bounds bounds = _collider.bounds;
 
-        Debug.DrawRay(transform.position, new Vector2(0, _playerHeight/2 - offset), Color.green);
-        Debug.DrawRay(transform.position, new Vector2(0, -(_playerHeight / 2 - offset)), Color.green);
-        Debug.DrawRay(transform.position, new Vector2(_playerWidth / 2 - offset, 0), Color.green);
-        Debug.DrawRay(transform.position, new Vector2( -(_playerWidth / 2 - offset), 0), Color.green);
+        //if (transform.rotation.eulerAngles.z == 90 || transform.rotation.eulerAngles.z == 270)
+        //{
+        //    _playerWidth = bounds.extents.y;
+        //    _playerHeight = bounds.extents.x;
+        //}
+        //else
+        //{
+        //    _playerWidth = bounds.extents.x;
+        //    _playerHeight = bounds.extents.y;
+        //}
 
-        RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up, _playerHeight / 2 - offset, wallMask);
-        RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, _playerHeight / 2 - offset, wallMask);
-        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, _playerWidth / 2 - offset, wallMask);
-        RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, _playerWidth / 2 - offset, wallMask);
+        _playerWidth = bounds.extents.x;
+        _playerHeight = bounds.extents.y;
+
+        Vector2 fixedPosition = (transform.position
+            + transform.rotation * new Vector3(0, transform.localScale.y * _colliderOffset, 0));
+
+        Debug.DrawRay(fixedPosition,
+            new Vector2(0, _playerHeight - offset), Color.red);
+        Debug.DrawRay(fixedPosition,
+            new Vector2(0, -(_playerHeight - offset)), Color.green);
+        Debug.DrawRay(fixedPosition,
+            new Vector2(_playerWidth - offset, 0), Color.blue);
+        Debug.DrawRay(fixedPosition,
+            new Vector2(-(_playerWidth - offset), 0), Color.magenta);
+
+        RaycastHit2D hitUp = Physics2D.Raycast(fixedPosition,
+            Vector2.up, _playerHeight - offset, wallMask);
+        RaycastHit2D hitDown = Physics2D.Raycast(fixedPosition,
+            Vector2.down, _playerHeight - offset, wallMask);
+        RaycastHit2D hitLeft = Physics2D.Raycast(fixedPosition,
+            Vector2.left, _playerWidth - offset, wallMask);
+        RaycastHit2D hitRight = Physics2D.Raycast(fixedPosition,
+            Vector2.right, _playerWidth - offset, wallMask);
 
         if (hitUp.collider != null || hitDown.collider != null
             || hitLeft.collider != null || hitRight.collider != null)

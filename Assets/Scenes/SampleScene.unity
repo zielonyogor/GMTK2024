@@ -934,7 +934,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2667971836873296349, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
       propertyPath: m_Name
-      value: Potion (1)
+      value: Item (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4803149881730171175, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2044,7 +2044,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2667971836873296349, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
       propertyPath: m_Name
-      value: Potion
+      value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 4803149881730171175, guid: a863545ff5b60bc41871e152cf11333e, type: 3}
       propertyPath: m_LocalPosition.x
