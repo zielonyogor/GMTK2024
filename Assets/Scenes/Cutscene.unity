@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endings:
   - {fileID: 21300000, guid: 3b97adf603da4af44a7e8d25c27de433, type: 3}
-  - {fileID: 21300000, guid: 8be684b1f0d002b47b6b1c22fce874cb, type: 3}
+  - {fileID: 21300000, guid: f941ca4c8985af94d9abcb2849101866, type: 3}
 --- !u!114 &147783356
 MonoBehaviour:
   m_ObjectHideFlags: 0
