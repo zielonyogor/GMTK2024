@@ -9,20 +9,48 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _rb;
     private Vector2 _velocity;
+    private Animator _animator;
+
+    Vector3 _rotationVector = Vector3.zero;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     private void OnMove(InputValue value)
     {
         _velocity = value.Get<Vector2>();
+        if(_velocity.x < 0)
+        {
+            _rotationVector.z = 90;
+            _animator.SetBool("isWalking", true);
+        }
+        if (_velocity.x > 0)
+        {
+            _rotationVector.z = -90;
+            _animator.SetBool("isWalking", true);
+        }
+        if (_velocity.y < 0)
+        {
+            _rotationVector.z = 180;
+            _animator.SetBool("isWalking", true);
+        }
+        if (_velocity.y > 0)
+        {
+            _rotationVector.z = 0;
+            _animator.SetBool("isWalking", true);
+        }
     }
 
     private void FixedUpdate()
     {
-
+        transform.rotation = Quaternion.Euler(_rotationVector);
         _rb.MovePosition(_rb.position + _velocity * speed * Time.fixedDeltaTime);
+        if(_velocity == Vector2.zero)
+        {
+            _animator.SetBool("isWalking", false);
+        }
     }
 }
