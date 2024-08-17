@@ -42,7 +42,6 @@ public static class SaveSystem
             try
             {
                 File.Delete(path);
-                Debug.Log("Save file deleted successfully.");
             }
             catch (Exception ex)
             {

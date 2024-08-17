@@ -18,7 +18,7 @@ public class ChangePlayerSize : MonoBehaviour
 
         if (transform.localScale.x < 0.5)
         {
-            GameManager.Instance.GameOver(Constants.GameOverState.PlayerTooSmall);
+            GameManager.Instance.GameOver(Constants.GameEndState.PlayerTooSmall);
         }
     }
     public void ChangeSpeed(float speed)

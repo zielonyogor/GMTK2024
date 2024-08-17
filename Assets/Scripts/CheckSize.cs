@@ -60,7 +60,7 @@ public class CheckSize : MonoBehaviour
         if (hitUp.collider != null || hitDown.collider != null
             || hitLeft.collider != null || hitRight.collider != null)
         {
-            GameManager.Instance.GameOver(Constants.GameOverState.PlayerTooBig);
+            GameManager.Instance.GameOver(Constants.GameEndState.PlayerTooBig);
         }
     }
 }

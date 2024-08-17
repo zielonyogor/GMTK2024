@@ -7,12 +7,15 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Header("Variable for game over screen")]
+    [Header("Variable for game end screen")]
     public int cutsceneBackground;
 
     [Header("Game Data")]
     public GameData gameData;
-    public int currentLevel = 1;
+    public int currentLevel = 0;
+
+    [Header("Other variables")]
+    public bool returnToLevelSelector = false;
 
     private void Awake()
     {
@@ -30,19 +33,29 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        gameData.level++;
-        if(currentLevel < gameData.level)
+        returnToLevelSelector = true;
+        //sth weird here
+        if(currentLevel == gameData.level)
         {
-            currentLevel++;
+            gameData.level++;
         }
         Debug.Log("player finished this level, next level: " + gameData.level);
+
+        if (gameData.level >= 10)
+        {
+            SaveSystem.DeleteSaveFile();
+            SceneManager.LoadScene("MainMenu");
+            return;
+        }
+
+        //change to switch to next level immediately maybe??
         SceneManager.LoadScene("MainMenu");
         SaveSystem.SaveGame();
     }
 
-    public void GameOver(Constants.GameOverState state)
+    public void GameOver(Constants.GameEndState state)
     {
-        if (state == Constants.GameOverState.PlayerTooBig)
+        if (state == Constants.GameEndState.PlayerTooBig)
         {
             Debug.Log("you grew too big");
             cutsceneBackground = 0;

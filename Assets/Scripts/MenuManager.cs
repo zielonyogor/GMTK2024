@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject mainMenu, levelSelector;
+
+    private void Start()
+    {
+        if (GameManager.Instance.returnToLevelSelector)
+        {
+            LoadLevels();
+        }
+    }
     public void LoadLevels()
     {
         mainMenu.SetActive(false);

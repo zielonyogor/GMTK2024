@@ -1,8 +1,11 @@
 public static class Constants
 {
-    public enum GameOverState
+    public enum GameEndState
     {
         PlayerTooSmall,
-        PlayerTooBig
+        PlayerTooBig,
+        PlayerWon
     }
+
+    public static readonly int maxLevel = 10;
 }
