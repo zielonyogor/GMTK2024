@@ -41,10 +41,11 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log("player finished this level, next level: " + gameData.level);
 
-        if (gameData.level >= 10)
+        if (gameData.level > Constants.maxLevel)
         {
             SaveSystem.DeleteSaveFile();
-            SceneManager.LoadScene("MainMenu");
+            cutsceneBackground = 2;
+            SceneManager.LoadScene("Cutscene");
             return;
         }
 

@@ -8,6 +8,9 @@ public class ShowCutscene : MonoBehaviour
 {
     [SerializeField] List<Sprite> endings;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip gameWonClip;
+
     private Image _background;
     private int _index;
 
@@ -15,13 +18,24 @@ public class ShowCutscene : MonoBehaviour
     {
         _background = GetComponent<Image>();
         _index = GameManager.Instance.cutsceneBackground;
-        StartCoroutine(ShowGameOverScreen());
+        StartCoroutine(ShowGameScreen());
     }
 
-    private IEnumerator ShowGameOverScreen()
+    private IEnumerator ShowGameScreen()
     {
         _background.sprite = endings[_index];
+        PlayMusic.Instance.Stop();
+        if (_index <= 1)
+        {
+            audioSource.Play();
+        }
+        else
+        {
+            audioSource.clip = gameWonClip;
+            audioSource.Play();
+        }
         yield return new WaitForSeconds(3f);
+        PlayMusic.Instance.Play();
         SceneManager.LoadScene("MainMenu");
     }
 }
