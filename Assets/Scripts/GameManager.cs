@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     {
         returnToLevelSelector = true;
         //sth weird here
-        if(currentLevel == gameData.level)
+        if(currentLevel == gameData.level - 1)
         {
             gameData.level++;
         }

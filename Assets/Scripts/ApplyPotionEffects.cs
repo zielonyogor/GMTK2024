@@ -40,6 +40,6 @@ public class ApplyPotionEffects : MonoBehaviour
         GameObject spawnedParticles = Instantiate(particlesObject, this.transform.position, Quaternion.identity);
         _particles = spawnedParticles.GetComponent<ParticleSystem>();
         _particles.Play();
-        Destroy(this.gameObject);
+        Destroy(transform.parent.gameObject);
     }
 }
