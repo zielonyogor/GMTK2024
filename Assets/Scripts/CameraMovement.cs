@@ -10,10 +10,6 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] ChangePlayerSize scriptSize;
     [SerializeField] PlayerInput playerInput;
 
-    [Header("Boundaries")]
-    [SerializeField] Vector3 minValue;
-    [SerializeField] Vector3 maxValue;
-
     [Header("Smooth factor")]
     [Range(3f, 10f)]
     [SerializeField] float smoothFactor;
@@ -42,10 +38,7 @@ public class CameraMovement : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float percentageCompleted = elapsedTime / _curveTime;
             Camera.main.orthographicSize = Mathf.Lerp(8, 4, curve.Evaluate(percentageCompleted));
-            Vector3 smoothedPosition = Vector3.Lerp(new Vector3(0,0,-10), 
-                new Vector3(player.position.x, player.position.y, -10), 
-                curve.Evaluate(percentageCompleted));
-            transform.position = smoothedPosition;
+            transform.position = Vector3.Lerp(transform.position, LimitPosition(player.position), smoothFactor * Time.fixedDeltaTime);
 
             yield return new WaitForFixedUpdate();
         }
@@ -60,15 +53,25 @@ public class CameraMovement : MonoBehaviour
     {
         if (_isAnimationFinished)
         {
-            Vector3 targetPosition = player.position;
-
-            Vector3 boundPosition = new Vector3(Mathf.Clamp(targetPosition.x, minValue.x, maxValue.x),
-                Mathf.Clamp(targetPosition.y, minValue.y, maxValue.y),
-                Mathf.Clamp(targetPosition.z, minValue.z, maxValue.z));
-
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, boundPosition, smoothFactor*Time.fixedDeltaTime);
-            transform.position = smoothedPosition;
+            transform.position = Vector3.Lerp(transform.position, LimitPosition(player.position), smoothFactor * Time.fixedDeltaTime);
         }
-        
+    }
+
+    private Vector3 LimitPosition(Vector3 position)
+    {
+        float height = Camera.main.orthographicSize;
+        float width = height * Camera.main.aspect;
+
+        float minX = Global.worldBounds.min.x + width;
+        float maxX = Global.worldBounds.extents.x - width;
+
+        float minY = Global.worldBounds.min.y + height;
+        float maxY = Global.worldBounds.extents.y - height;
+
+        Vector3 newPosition = new Vector3(Mathf.Clamp(position.x, minX, maxX),
+                Mathf.Clamp(position.y, minY, maxY),
+                -10f);
+
+        return newPosition;
     }
 }

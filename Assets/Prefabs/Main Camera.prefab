@@ -108,8 +108,6 @@ MonoBehaviour:
   player: {fileID: 0}
   scriptSize: {fileID: 0}
   playerInput: {fileID: 0}
-  minValue: {x: -6.8, y: -3.9, z: -10}
-  maxValue: {x: 6.8, y: 3.9, z: -10}
   smoothFactor: 8
   curve:
     serializedVersion: 2
