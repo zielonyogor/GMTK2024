@@ -1439,26 +1439,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 271677915643077614, guid: 48def4d1eadeee34aa4072c83420ab68, type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 271677915643077614, guid: 48def4d1eadeee34aa4072c83420ab68, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 271677915643077614, guid: 48def4d1eadeee34aa4072c83420ab68, type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 5400318864013223675, guid: 48def4d1eadeee34aa4072c83420ab68, type: 3}
       propertyPath: m_Name
       value: ItemParticle
       objectReference: {fileID: 0}
-    - target: {fileID: 6512771649226036721, guid: 48def4d1eadeee34aa4072c83420ab68, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6dfeb4539ceec0b449d0037aefbee021, type: 2}
     - target: {fileID: 7510477311710190883, guid: 48def4d1eadeee34aa4072c83420ab68, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.96
