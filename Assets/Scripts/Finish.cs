@@ -18,6 +18,7 @@ public class Finish : MonoBehaviour
 
     private IEnumerator FadeScreen()
     {
+        input.enabled = false;
         for (var t = 0.0f; t < 1.0f; t += Time.deltaTime / 1f)
         {
             Color newColor = new Color(0f, 0f, 0f, Mathf.Lerp(0, 1f, t));
