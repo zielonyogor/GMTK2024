@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] GameObject mainMenu, levelSelector;
+    [SerializeField] GameObject mainMenu, levelSelector, cutscene;
 
     private void Start()
     {
@@ -16,8 +16,16 @@ public class MenuManager : MonoBehaviour
     }
     public void LoadLevels()
     {
-        mainMenu.SetActive(false);
-        levelSelector.SetActive(true);
+        if (GameManager.Instance.gameData.sawCutscene)
+        {
+            mainMenu.SetActive(false);
+            levelSelector.SetActive(true);
+
+        }
+        else
+        {
+            StartCoroutine(PlayCutscene());
+        }
     }
 
     public void ReturnToMainMenu()
@@ -29,5 +37,21 @@ public class MenuManager : MonoBehaviour
     {
         GameManager.Instance.currentLevel = index;
         SceneManager.LoadScene(0);
+    }
+
+    private IEnumerator PlayCutscene()
+    {
+        cutscene.SetActive(true);
+        
+        Animator animator = cutscene.GetComponent<Animator>();
+
+        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            yield return null;
+
+        GameManager.Instance.gameData.sawCutscene = true;
+
+        cutscene.SetActive(false);
+        mainMenu.SetActive(false);
+        levelSelector.SetActive(true);
     }
 }
