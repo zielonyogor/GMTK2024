@@ -8,17 +8,23 @@ using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class Finish : MonoBehaviour
 {
-    [SerializeField] PlayerInput input;
-
     [SerializeField] Image blackScreen;
+
+    private GameObject _player;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(FadeScreen());
+        _player = collision.gameObject;
+        if (_player.CompareTag("Player"))
+        {
+            _player.GetComponent<PlayerInput>().enabled = false;
+            _player.GetComponent<CheckSize>().enabled = false;
+            _player.GetComponent<ChangePlayerSize>().enabled = false;
+            StartCoroutine(FadeScreen());
+        }
     }
 
     private IEnumerator FadeScreen()
     {
-        input.enabled = false;
         for (var t = 0.0f; t < 1.0f; t += Time.deltaTime / 1f)
         {
             Color newColor = new Color(0f, 0f, 0f, Mathf.Lerp(0, 1f, t));

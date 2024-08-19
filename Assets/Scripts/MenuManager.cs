@@ -35,8 +35,9 @@ public class MenuManager : MonoBehaviour
     }
     public void StartGame(int index)
     {
+        GameManager.Instance.returnToLevelSelector = true;
         GameManager.Instance.currentLevel = index;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("SampleScene"); //needs to be change to "Level_" + index
     }
 
     private IEnumerator PlayCutscene()

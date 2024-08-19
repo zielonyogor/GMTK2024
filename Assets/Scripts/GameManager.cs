@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [Header("Other variables")]
     public bool returnToLevelSelector = false;
 
+    private bool _collectedItem = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -33,13 +35,16 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        returnToLevelSelector = true;
-        //sth weird here
-        if(currentLevel == gameData.level - 1)
+        if(_collectedItem)
+        {
+            gameData.completedWithSpecial[currentLevel] = true;
+            _collectedItem = false;
+        }
+
+        if (currentLevel == gameData.level - 1)
         {
             gameData.level++;
         }
-        Debug.Log("player finished this level, next level: " + gameData.level);
 
         if (gameData.level > Constants.maxLevel)
         {
@@ -50,7 +55,6 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        //change to switch to next level immediately maybe??
         SceneManager.LoadScene("MainMenu");
         SaveSystem.SaveGame();
     }
@@ -73,6 +77,6 @@ public class GameManager : MonoBehaviour
 
     public void CountSpecialItem()
     {
-        gameData.completedWithSpecial[currentLevel] = true;
+        _collectedItem = true;
     }
 }
