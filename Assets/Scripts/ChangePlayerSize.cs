@@ -8,15 +8,24 @@ public class ChangePlayerSize : MonoBehaviour
     private float _minSpeed = 0.05f;
     private float _curveTime = 2f;
 
+    [Header("Initial size boost")]
+    [Range(-10f, 10f)]
+    [SerializeField] float initialSpeed = 1.5f;
+
     [Header("Speed changing curve")]
     [SerializeField] AnimationCurve speedCurve;
+
+    private void Start()
+    {
+        StartCoroutine(ChangeSpeedSmooth(initialSpeed));
+    }
 
     private void FixedUpdate()
     {
         transform.localScale = new Vector2(transform.localScale.x + _speed * Time.deltaTime, 
             transform.localScale.y + _speed * Time.deltaTime);
 
-        if (transform.localScale.x < 0.5)
+        if (transform.localScale.x < 0.4)
         {
             GameManager.Instance.GameOver(Constants.GameEndState.PlayerTooSmall);
         }
