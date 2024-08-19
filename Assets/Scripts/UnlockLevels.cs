@@ -11,6 +11,11 @@ public class UnlockLevels : MonoBehaviour
         for (int i = 0; i < GameManager.Instance.gameData.level; i++)
         {
             transform.GetChild(i).gameObject.GetComponent<Button>().interactable = true;
+
+            if (GameManager.Instance.gameData.completedWithSpecial[i] == true)
+            {
+                transform.GetChild(i).GetChild(1).gameObject.SetActive(true);
+            }
         }
     }
 }

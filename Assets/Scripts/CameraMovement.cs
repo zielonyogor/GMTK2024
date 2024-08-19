@@ -20,8 +20,12 @@ public class CameraMovement : MonoBehaviour
     private float _curveTime = 1.5f;
     private bool _isAnimationFinished = false;
 
+    private float _startSize; 
+
     private void Start()
     {
+        _startSize = Camera.main.orthographicSize;
+
         playerInput.enabled = false;
         scriptSize.enabled = false;
         StartCoroutine(StartAnimation());
@@ -37,7 +41,7 @@ public class CameraMovement : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             float percentageCompleted = elapsedTime / _curveTime;
-            Camera.main.orthographicSize = Mathf.Lerp(8, 4, curve.Evaluate(percentageCompleted));
+            Camera.main.orthographicSize = Mathf.Lerp(_startSize, 4, curve.Evaluate(percentageCompleted));
             transform.position = Vector3.Lerp(transform.position, LimitPosition(player.position), smoothFactor * Time.fixedDeltaTime);
 
             yield return new WaitForFixedUpdate();

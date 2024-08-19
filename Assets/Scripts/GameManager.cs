@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         {
             SaveSystem.DeleteSaveFile();
             cutsceneBackground = 2;
+            returnToLevelSelector = false;
             SceneManager.LoadScene("Cutscene");
             return;
         }
@@ -68,5 +69,10 @@ public class GameManager : MonoBehaviour
             cutsceneBackground = 1;
             SceneManager.LoadScene("Cutscene");
         }
+    }
+
+    public void CountSpecialItem()
+    {
+        gameData.completedWithSpecial[currentLevel] = true;
     }
 }
