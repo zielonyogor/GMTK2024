@@ -13,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 _rotationVector = Vector3.zero;
 
+    private void Awake()
+    {
+        _rotationVector.z = transform.eulerAngles.z;
+        Debug.Log(transform.rotation.z);
+    }
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();

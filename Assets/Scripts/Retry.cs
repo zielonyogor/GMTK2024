@@ -7,6 +7,7 @@ public class Retry : MonoBehaviour
 {
     public void RetryLevel()
     {
+        Debug.Log(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
