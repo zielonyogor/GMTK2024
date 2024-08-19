@@ -5,8 +5,11 @@ using UnityEngine;
 public class ChangePlayerSize : MonoBehaviour
 {
     private float _speed = 0f;
-    private float _minSpeed = 0.05f;
     private float _curveTime = 2f;
+
+    [Header("Constant speed of changing size")]
+    [Range(0f, 0.3f)]
+    [SerializeField] float _minSpeed = 0.05f;
 
     [Header("Initial size boost")]
     [Range(-10f, 10f)]

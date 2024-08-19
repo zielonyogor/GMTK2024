@@ -46,13 +46,13 @@ public class MenuManager : MonoBehaviour
         
         Animator animator = cutscene.GetComponent<Animator>();
 
-        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        while (animator && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.99f)
             yield return null;
 
         GameManager.Instance.gameData.sawCutscene = true;
 
+        levelSelector.SetActive(true);
         cutscene.SetActive(false);
         mainMenu.SetActive(false);
-        levelSelector.SetActive(true);
     }
 }

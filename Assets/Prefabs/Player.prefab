@@ -505,6 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce569c3f22dd91a44b1ba1f0b9616f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialSpeed: 1.2
   speedCurve:
     serializedVersion: 2
     m_Curve:
