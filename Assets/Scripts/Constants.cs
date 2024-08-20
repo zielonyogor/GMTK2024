@@ -7,5 +7,5 @@ public static class Constants
         PlayerWon
     }
 
-    public static readonly int maxLevel = 10;
+    public static readonly int maxLevel = 6;
 }
