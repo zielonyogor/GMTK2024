@@ -35,7 +35,7 @@ public class CameraMovement : MonoBehaviour
     {
         float elapsedTime = 0;
 
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1.8f);
 
         while (Camera.main.orthographicSize > 4)
         {
